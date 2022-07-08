@@ -1,0 +1,13 @@
+/**
+ * @description 路由相关的工具函数
+ */
+
+/**
+ * @desc 判断是否属于外部链接
+ * @param {string} url - 链接 
+ * @returns 
+ */
+export function isHttpOrHttpsUrl(url: string): boolean {
+    let regRule = /(http|https):\/\/([\w.]+\/?)\S*/
+    return regRule.test(url.toLowerCase())
+}
