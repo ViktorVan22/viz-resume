@@ -3,14 +3,15 @@ import './index.less';
 import { useHistory } from 'react-router';
 import Logo from '@assets/YiFei_Liu.png';
 import { shell } from 'electron';
+import { ROUTER_ENTRY } from '../../common/constants/router';
 
 const Root = () => {
   const history = useHistory();
-  const onRouterToLink = (text: string) => {
-    if (text !== '简历') {
-      shell.openExternal('https://github.com/ViktorVan22/viz-resume');
+  const onRouterToLink = (router: TSRouter.Item) => {
+    if (router.text !== '简历') {
+      shell.openExternal(router.url);
     } else {
-      history.push('/resume');
+      history.push(router.url);
     }
   };
 
@@ -21,10 +22,10 @@ const Root = () => {
         <div styleName="title">VisResumeMook</div>
         <div styleName="tips">一个模板简历制作平台, 让你的简历更加出众 ~</div>
         <div styleName="action">
-          {['介绍', '简历', '源码'].map((text, index) => {
+          {ROUTER_ENTRY.map((router: TSRouter.Item) => {
             return (
-              <div key={index} styleName="item" onClick={() => onRouterToLink(text)}>
-                {text}
+              <div key={router.key} styleName="item" onClick={() => onRouterToLink(router)}>
+                {router.text}
               </div>
             );
           })}
