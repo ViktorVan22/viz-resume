@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.less';
 import { useHistory } from 'react-router';
-import Logo from '../../../assets/YiFei_Liu.png';
+import Logo from '@assets/YiFei_Liu.png';
 import { shell } from 'electron';
 
 const Root = () => {

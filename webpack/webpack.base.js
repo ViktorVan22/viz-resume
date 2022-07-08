@@ -11,6 +11,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@src': path.join(__dirname, '../', 'app/renderer'),
+      '@assets': path.join(__dirname, '../', 'assets/'),
     },
   },
   module: {
