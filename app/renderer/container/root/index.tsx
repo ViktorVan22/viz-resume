@@ -1,7 +1,19 @@
 import React from 'react';
 import './index.less';
+import { useHistory } from 'react-router';
 import Logo from '../../../assets/YiFei_Liu.png';
+import { shell } from 'electron';
+
 const Root = () => {
+  const history = useHistory();
+  const onRouterToLink = (text: string) => {
+    if (text !== '简历') {
+      shell.openExternal('https://github.com/ViktorVan22/viz-resume');
+    } else {
+      history.push('/resume');
+    }
+  };
+
   return (
     <div styleName="root">
       <div styleName="container">
@@ -11,7 +23,7 @@ const Root = () => {
         <div styleName="action">
           {['介绍', '简历', '源码'].map((text, index) => {
             return (
-              <div key={index} styleName="item">
+              <div key={index} styleName="item" onClick={() => onRouterToLink(text)}>
                 {text}
               </div>
             );
