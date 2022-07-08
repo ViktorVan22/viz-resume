@@ -1,5 +1,6 @@
-import React from "react";
-import { FC } from "react";
+import React from 'react';
+import './index.less';
+import LiuYifei from '../assets/YiFei_Liu.png';
 
 interface IProps {
   /**
@@ -9,11 +10,15 @@ interface IProps {
   /**
    * @description 样式
    */
-  styles: React.CSSProperties;
+  styles?: React.CSSProperties;
 }
 
-const Title: FC<IProps> = ({ text, styles }) => {
-  return <div style={styles}>{text}</div>;
+const Title = ({ text, styles }: IProps) => {
+  return (
+    <div style={styles} styleName="title">
+      {text}
+    </div>
+  );
 };
 
 export default Title;

@@ -1,6 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import Title from './title';
 
 function App() {
   return (
@@ -10,10 +11,11 @@ function App() {
           <div>Hello, there</div>
           <div>可视化简历平台</div>
           <div>这是 Electron + React </div>
+          <Title text="1" />
         </Route>
       </Switch>
     </Router>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));
