@@ -1,11 +1,12 @@
 # viz-resume
 
-桌面端简历可视化项目，Electron+React+Node.js
+桌面端简历可视化项目，技术栈：Electron + React + Typescript
 
 # Installation
 
-`yarn add electron@11.1.1`
+`yarn install`
 
 # Run
 
-`yarn run start:main`
+`yarn start:main`  
+`yarn start:render`
