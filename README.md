@@ -6,7 +6,7 @@
 
 `yarn install`
 
-# Run
+# Development
 
 `yarn start:main`  
 `yarn start:render`
