@@ -3,18 +3,24 @@ import './index.less';
 import fileAction from '../../common/utils/file';
 import { getAppPath } from '../../common/utils/appPath';
 import path from 'path';
+import MyButton from '../../common/components/MyButton/index';
 
 const Resume = () => {
   getAppPath().then((rootPath: string) => {
     console.log('应用程序的目录路径为: ', rootPath);
     console.log('文件读取，内容数据为: ');
-    const dir = path.resolve(rootPath, 'app/renderer/container/resume/index.tsx');
-    fileAction.read(dir).then((data) => {
+    fileAction.read(`${rootPath}app/renderer/container/resume/index.tsx`).then((data) => {
       console.log(data);
     });
   });
 
-  return <div>我是简历模块</div>;
+  return (
+    <div>
+      <MyButton size="middle" onClick={() => console.log('点击按钮')}>
+        导出PDF
+      </MyButton>
+    </div>
+  );
 };
 
 export default Resume;
