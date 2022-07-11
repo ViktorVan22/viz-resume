@@ -1,7 +1,16 @@
 import React from 'react';
 import './index.less';
+import MyScrollBox from '@common/components/MyScrollBox/index';
+import * as UseTemplateList from './UseTemplate';
 
 function ResumeContent() {
-  return <div>我是简历内容展示区</div>;
+  const HEADER_ACTION_HEIGHT = 92;
+  const height = document.body.clientHeight;
+
+  return (
+    <MyScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
+      <UseTemplateList.TemplateOne />
+    </MyScrollBox>
+  );
 }
 export default ResumeContent;
