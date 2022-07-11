@@ -1,6 +1,5 @@
 import classnames from 'classnames';
 import React from 'react';
-import { FC } from 'react';
 import './index.less';
 
 export interface ButtonProps {

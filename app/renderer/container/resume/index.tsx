@@ -2,8 +2,8 @@ import React from 'react';
 import './index.less';
 import fileAction from '../../common/utils/file';
 import { getAppPath } from '../../common/utils/appPath';
-import path from 'path';
 import MyButton from '../../common/components/MyButton/index';
+import MyInput from '../../common/components/MyInput/index';
 
 const Resume = () => {
   getAppPath().then((rootPath: string) => {
@@ -19,6 +19,13 @@ const Resume = () => {
       <MyButton size="middle" onClick={() => console.log('点击按钮')}>
         导出PDF
       </MyButton>
+      <hr />
+      <MyInput
+        value={'username'}
+        placeholder="请输入姓名"
+        allowClear={true}
+        onChange={(e) => console.log(e.target.value)}
+      />
     </div>
   );
 };
