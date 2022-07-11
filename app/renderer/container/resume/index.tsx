@@ -26,6 +26,17 @@ const Resume = () => {
         allowClear={true}
         onChange={(e) => console.log(e.target.value)}
       />
+      {/* 多行输入框 */}
+      <MyInput
+        value={'hobby'}
+        placeholder="你有什么爱好？"
+        allowClear={true}
+        onChange={(e) => console.log(e.target.value)}
+        type="textarea"
+        rows={5}
+        maxLength={200}
+        allowCount={true}
+      />
     </div>
   );
 };
