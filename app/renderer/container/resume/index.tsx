@@ -4,6 +4,7 @@ import fileAction from '../../common/utils/file';
 import { getAppPath } from '../../common/utils/appPath';
 import MyButton from '../../common/components/MyButton/index';
 import MyInput from '../../common/components/MyInput/index';
+import MyModal, { Confirm } from '../../common/components/MyModal/index';
 
 const Resume = () => {
   getAppPath().then((rootPath: string) => {
@@ -37,6 +38,22 @@ const Resume = () => {
         maxLength={200}
         allowCount={true}
       />
+      {/* <MyModal.Confirm
+        title="确定要打印简历吗？"
+        description="请确保信息的正确，目前仅支持单页打印哦~"
+        config={{
+          cancelBtn: {
+            isShow: true,
+            callback: () => {},
+          },
+          submitBtn: {
+            isShow: true,
+            callback: () => {
+              console.log('submitted');
+            },
+          },
+        }}
+      /> */}
     </div>
   );
 };

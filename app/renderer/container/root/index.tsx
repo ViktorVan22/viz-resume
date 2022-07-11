@@ -23,7 +23,6 @@ const Root = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log('3s后修改...');
       dispatch({
         type: 'globalModel/setStore',
         payload: {
@@ -31,7 +30,7 @@ const Root = () => {
           values: 'vizResume',
         },
       });
-    }, 3000);
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const Root = () => {
     <div styleName="root">
       <div styleName="container">
         <img src={Logo} alt="" />
-        <div styleName="title">VisResumeMook</div>
+        <div styleName="title">VizResume</div>
         <div styleName="tips">一个模板简历制作平台, 让你的简历更加出众 ~</div>
         <div styleName="action">
           {ROUTER_ENTRY.map((router: TSRouter.Item) => {
