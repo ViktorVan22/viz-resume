@@ -5,6 +5,7 @@ import { getAppPath } from '../../common/utils/appPath';
 import MyButton from '../../common/components/MyButton/index';
 import MyInput from '../../common/components/MyInput/index';
 import MyModal, { Confirm } from '../../common/components/MyModal/index';
+import MyScrollBox from '../../common/components/MyScrollBox/index';
 
 const Resume = () => {
   getAppPath().then((rootPath: string) => {
@@ -14,6 +15,9 @@ const Resume = () => {
       console.log(data);
     });
   });
+
+  const HEADER_HEIGHT = 60;
+  const height = document.body.clientHeight;
 
   return (
     <div>
@@ -27,6 +31,7 @@ const Resume = () => {
         allowClear={true}
         onChange={(e) => console.log(e.target.value)}
       />
+      <hr />
       {/* 多行输入框 */}
       <MyInput
         value={'hobby'}
