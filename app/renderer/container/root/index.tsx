@@ -55,7 +55,7 @@ const Root = () => {
         <div styleName="copyright">
           <div styleName="footer">
             <p styleName="copyright">
-              Copyright © 2018-{new Date().getFullYear()} All Rights Reserved. Copyright By pengdaokuan
+              Copyright © 2018-{new Date().getFullYear()} All Rights Reserved. Copyright By ViktorVan
             </p>
           </div>
         </div>

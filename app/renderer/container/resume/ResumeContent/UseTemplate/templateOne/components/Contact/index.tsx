@@ -1,6 +1,6 @@
 /**
  * @desc 联系方式
- * @author pengdaokuan
+ * @author ViktorVan
  */
 import React from 'react';
 import '../../../styles/template-one.less';
