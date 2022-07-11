@@ -12,7 +12,7 @@ export const RESUME_TOOLBAR_MAPS = {
     test: 'test', // 测试用例
 }
 
-const RESUME_TOOLBAR: TSResume.SliderItem[] = [
+export const RESUME_TOOLBAR_LIST: TSResume.SliderItem[] = [
     {
         key: RESUME_TOOLBAR_MAPS.personal,
         name: '个人信息',
@@ -69,3 +69,4 @@ const RESUME_TOOLBAR: TSResume.SliderItem[] = [
         summary: '测试用例，一键覆盖',
     },
 ]
+
