@@ -6,8 +6,10 @@ import RcReduxModel from 'rc-redux-model'
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 // 引入写好的model
 import { globalModel } from "./globalModel";
+import resumeModel from './resumeModel';
+import templateModel from './templateModel';
 
-const reduxModel = new RcReduxModel([globalModel])
+const reduxModel = new RcReduxModel([globalModel, resumeModel, templateModel])
 
 const reducerList = combineReducers(reduxModel.reducers)
 

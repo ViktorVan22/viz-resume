@@ -3,9 +3,11 @@ import './index.less';
 import MyScrollBox from '@common/components/MyScrollBox/index';
 import { RESUME_TOOLBAR_LIST } from '../../../common/constants/resume';
 import { onAddToolbar, onDeleteToolbar } from './utils';
+import { useDispatch } from 'react-redux';
 
 function ResumeToolbar() {
   const height = document.body.clientHeight;
+  const dispatch = useDispatch();
 
   const [addToolbarList, setAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
@@ -20,20 +22,30 @@ function ResumeToolbar() {
       });
       setAddToolbarList(_addToolbarList);
       setUnAddToolbarList(_unAddToolbarList);
+      changeResumeToolbarKeys(_addToolbarList.map((s) => s.key));
     }
   }, []);
 
+  // 修改Redux中的值，使用rc-redux-model提供的API
   const changeResumeToolbarKeys = (moduleKeys: string[]) => {
     if (moduleKeys.length > 0) {
+      dispatch({
+        type: 'templateModel/setStore',
+        payload: {
+          key: 'resumeToolbarKeys',
+          values: moduleKeys,
+        },
+      });
     }
   };
 
   const onAddSliderAction = (moduleToolbar: TSResume.SliderItem) => {
-    const nextAddSliderAction = onAddToolbar(addToolbarList, moduleToolbar);
-    setAddToolbarList(nextAddSliderAction);
+    const nextAddSliderList = onAddToolbar(addToolbarList, moduleToolbar);
+    setAddToolbarList(nextAddSliderList);
 
     const nextUnAddSliderList = onDeleteToolbar(unAddToolbarList, moduleToolbar);
     setUnAddToolbarList(nextUnAddSliderList);
+    changeResumeToolbarKeys(nextAddSliderList.map((s: TSResume.SliderItem) => s.key));
   };
 
   const onDeleteSliderAction = (moduleToolbar: TSResume.SliderItem) => {
@@ -42,6 +54,7 @@ function ResumeToolbar() {
 
     const nextUnAddSliderList = onAddToolbar(unAddToolbarList, moduleToolbar);
     setUnAddToolbarList(nextUnAddSliderList);
+    changeResumeToolbarKeys(nextAddSliderList.map((s: TSResume.SliderItem) => s.key));
   };
 
   return (
