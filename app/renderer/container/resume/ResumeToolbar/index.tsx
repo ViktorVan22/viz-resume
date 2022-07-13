@@ -4,6 +4,7 @@ import MyScrollBox from '@common/components/MyScrollBox/index';
 import { RESUME_TOOLBAR_LIST } from '../../../common/constants/resume';
 import { onAddToolbar, onDeleteToolbar } from './utils';
 import { useDispatch } from 'react-redux';
+import Messager, { MESSAGE_EVENT_NAME_MAPS } from '../../../common/messager/index';
 
 function ResumeToolbar() {
   const height = document.body.clientHeight;
@@ -60,7 +61,7 @@ function ResumeToolbar() {
   return (
     <div styleName="slider">
       <MyScrollBox maxHeight={height - 100}>
-        {!!addToolbarList.length && (
+        {addToolbarList.length && (
           <div styleName="module">
             <div styleName="title">
               <span styleName="line" />
@@ -69,7 +70,15 @@ function ResumeToolbar() {
             <div styleName="content">
               {addToolbarList.map((addSlider: TSResume.SliderItem) => {
                 return (
-                  <div styleName="box" key={addSlider.key} onClick={() => onDeleteSliderAction(addSlider)}>
+                  <div
+                    styleName="box"
+                    key={addSlider.key}
+                    onClick={() => {
+                      Messager.send(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, {
+                        form_name: addSlider.key,
+                      });
+                    }}
+                  >
                     <div styleName="info">
                       <i styleName="icon" />
                       <div styleName="text">
@@ -80,7 +89,13 @@ function ResumeToolbar() {
                       {!addSlider.require && (
                         <div styleName="action">
                           <i styleName="edit" onClick={(e: React.MouseEvent) => {}} />
-                          <i styleName="delete" />
+                          <i
+                            styleName="delete"
+                            onClick={(e: React.MouseEvent) => {
+                              e.stopPropagation && e.stopPropagation();
+                              onDeleteSliderAction(addSlider);
+                            }}
+                          />
                         </div>
                       )}
                     </div>

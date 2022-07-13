@@ -16,6 +16,7 @@ import Project from './components/Project/index';
 import Work from './components/Work/index';
 import { useSelector } from 'react-redux';
 import { RESUME_TOOLBAR_MAPS } from '@common/constants/resume';
+import useState from 'react';
 
 const TemplateOne = () => {
   // 获取简历信息数据
